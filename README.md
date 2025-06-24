@@ -9,7 +9,9 @@ API 密钥：是一串随机字符串
 
 文件结构
 xinnetapi/
+
 ├── .env    <--    配置Xinnet的API帐号和密钥
+
 ├── cli_dns_log.txt    <--    log记录文件
 ├── cli.py    <--    功能命令行工具
 ├── logger.py    <--    日志记录器
