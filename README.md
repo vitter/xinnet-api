@@ -28,6 +28,28 @@ xinnetapi/
 
 └── xinnet_dns_api.py    <--    新网DNS API 执行 增/查/改/删 记录的类# xinnet-api
 
+root@Vfocus:~/xinnetapi# python cli.py
+usage: cli.py [-h] {query-domain,list,create,modify,delete} ...
+
+Xinnet DNS CLI 工具
+
+positional arguments:
+
+  {query-domain,list,create,modify,delete}
+  
+                        命令                        
+    query-domain        查询域名信息    
+    list                查询解析记录    
+    create              添加解析记录    
+    modify              修改解析记录    
+    delete              删除解析记录
+    
+
+optional arguments:
+
+  -h, --help            show this help message and exit
+
+  
 
 docker run -it --rm --name certbot -v "/root/xinnetapi/:/root/xinnetapi/" -v "/etc/letsencrypt/:/etc/letsencrypt/"  certbot/certbot  certonly --manual --preferred-challenges dns --manual-auth-hook "/root/xinnetapi/xinnet_auth.py" --manual-cleanup-hook "/root/xinnetapi/xinnet_cleanup.py" -d tmd2.com -d *.tmd2.com
 
