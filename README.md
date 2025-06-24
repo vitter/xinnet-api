@@ -1,7 +1,7 @@
 # xinnet-api
 Xinnet API脚本工具
 
-这个脚本程序通过Xinnet的API接口可以实现Cretbot Hook自动化。
+这个脚本程序通过Xinnet的API接口可以实现Cretbot Hook自动化。CLI工具可以增删查改域名。
 
 首先你要在Xinnet后台申请域名API管理：开通成功后，请添加接入IP，添加后方可正常使用API。API开通后有效期为1年，需在到期前一个月内进行在线年审。逾期未年审，将限制API使用。
 
