@@ -1,10 +1,33 @@
 #!/usr/bin/env python3
 import os
 import sys
-from xinnet_dns_api import query_domain, create_record
-from logger import log_info, log_error
+import subprocess
+
+def install_package(package):
+    """安装 Python 包"""
+    try:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", package], 
+                            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        return True
+    except:
+        return False
 
 def main():
+    # 尝试安装依赖
+    packages_to_install = ["requests", "python-dotenv"]
+    for package in packages_to_install:
+        try:
+            __import__(package.replace("-", "_"))
+        except ImportError:
+            install_package(package)
+    
+    # 现在导入所需模块
+    from xinnet_dns_api import query_domain, create_record
+    from logger import log_info, log_error, log_startup_info
+    
+    # 记录启动信息
+    log_startup_info()
+    
     certbot_domain = os.environ.get("CERTBOT_DOMAIN")
     certbot_validation = os.environ.get("CERTBOT_VALIDATION")
     
@@ -17,16 +40,10 @@ def main():
     acme_record_name = "_acme-challenge"
 
     # 获取域名信息
-    domain_info = query_domain(certbot_domain)
-    if not domain_info or not domain_info.get("data"):
+    response = query_domain(certbot_domain)
+    if not response or not response.get("data"):
         log_error(f"无法查询域名信息: {certbot_domain}")
         sys.exit(1)
-
-    response = query_domain(certbot_domain)
-
-    if not response or "data" not in response:
-        log_error(f"查询域名失败：{response}")
-        exit(1)
 
     domain_data = response["data"]
     top_domain_name = domain_data.get("name")
@@ -54,4 +71,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
