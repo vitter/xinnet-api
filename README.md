@@ -16,7 +16,7 @@ xinnetapi/
 
 ├── .env    <--    配置Xinnet的API帐号和密钥
 
-├── cli_dns_log.txt    <--    log记录文件
+├── xinnet_dns_log.txt    <--    log记录文件
 
 ├── cli.py    <--    功能命令行工具
 
