@@ -12,21 +12,14 @@ API 密钥：是一串随机字符串
 
 文件结构
 
-xinnetapi/
-
+xinnetapi
 ├── .env    <--    配置Xinnet的API帐号和密钥
-
-├── xinnet_dns_log.txt    <--    log记录文件
-
 ├── cli.py    <--    功能命令行工具
-
 ├── logger.py    <--    日志记录器
-
 ├── xinnet_auth.py    <--    Certbot Auth Hook：用于certbot在验证前添加TXT记录 ( chmod +x )
-
 ├── xinnet_cleanup.py    <--    Certbot Cleanup Hook：用于certbot验证完成后删除TXT记录 ( chmod +x )
-
-└── xinnet_dns_api.py    <--    新网DNS API 执行 增/查/改/删 记录的类# xinnet-api
+├── xinnet_dns_api.py    <--    新网DNS API 执行 增/查/改/删 记录的类# xinnet-api
+└── xinnet_dns_log.txt    <--    log记录文件
 
 root@Vfocus:~/xinnetapi# python cli.py
 usage: cli.py [-h] {query-domain,list,create,modify,delete} ...
