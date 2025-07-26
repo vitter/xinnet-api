@@ -15,7 +15,7 @@
 - 获取 API 账号（如：`agent12345`）与密钥（随机字符串），并填写到 `.env` 文件：
 
 ```env
-XINNET_ACCESS_ID==你的账号
+XINNET_ACCESS_ID=你的账号
 XINNET_ACCESS_SECRET=你的密钥
 ```
 
