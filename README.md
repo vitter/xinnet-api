@@ -26,8 +26,8 @@ xinnetapi/
 ├── .env                # API 账号和密钥配置
 ├── cli.py              # 命令行工具
 ├── logger.py           # 日志记录器
-├── xinnet_auth.py      # Certbot Auth Hook，添加 TXT 记录
-├── xinnet_cleanup.py   # Certbot Cleanup Hook，删除 TXT 记录
+├── xinnet_auth.py      # Certbot Auth Hook，添加 TXT 记录 （需chmod +x 执行命令权限）
+├── xinnet_cleanup.py   # Certbot Cleanup Hook，删除 TXT 记录 （需chmod +x 执行命令权限）
 ├── xinnet_dns_api.py   # 新网 DNS API 操作类
 └── xinnet_dns_log.txt  # 日志文件
 ```
